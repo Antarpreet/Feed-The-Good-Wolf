@@ -524,6 +524,7 @@ class FeelingFunnnelViewController: UIViewController, UITableViewDelegate, UITab
             let sendFeeling = self.feelingTextField.text// the text from the field
             self.delegate?.feelingFunnelVCDismissed(sendFeeling)
             
+            
         }
     }
     

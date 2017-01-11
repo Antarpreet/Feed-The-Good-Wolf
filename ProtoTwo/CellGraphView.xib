@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CellGraphView" customModule="ProtoTwo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="73" height="148"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Of0-O7-GhL">
+                    <rect key="frame" x="0.0" y="0.0" width="73" height="25"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crazyWolfHead" translatesAutoresizingMaskIntoConstraints="NO" id="Fqz-dz-rgE">
+                            <rect key="frame" x="0.0" y="0.0" width="36.5" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="H4j-U8-Dyu"/>
+                                <constraint firstAttribute="height" constant="25" id="Hct-UW-Zlh"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="H4j-U8-Dyu"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tT-yF-Abs">
+                            <rect key="frame" x="36" y="0.0" width="36.5" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="dQ8-54-rxH"/>
+                                <constraint firstAttribute="width" constant="25" id="eoh-Fu-a3E"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="eoh-Fu-a3E"/>
+                                </mask>
+                            </variation>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4c-Mj-GZU" customClass="BarChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="25" width="73" height="123"/>
+                    <color key="backgroundColor" red="0.18953054759999999" green="0.83196989529999998" blue="0.05860550355" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5n1-bg-8gl"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Of0-O7-GhL" secondAttribute="trailing" id="7oB-Dx-PWY"/>
+                <constraint firstAttribute="bottom" secondItem="i4c-Mj-GZU" secondAttribute="bottom" id="8gf-LQ-eOa"/>
+                <constraint firstItem="Of0-O7-GhL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="93U-3v-ASc"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="top" secondItem="Of0-O7-GhL" secondAttribute="bottom" id="F3n-0q-o25"/>
+                <constraint firstAttribute="trailing" secondItem="i4c-Mj-GZU" secondAttribute="trailing" id="GIz-5k-kCY"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="39" id="IUk-hS-Sh2"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="top" secondItem="Of0-O7-GhL" secondAttribute="bottom" constant="2" id="Ixu-X4-FWs"/>
+                <constraint firstItem="Of0-O7-GhL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RqU-j8-17P"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="top" secondItem="Of0-O7-GhL" secondAttribute="bottom" id="ZSI-pA-SFO"/>
+                <constraint firstAttribute="bottom" secondItem="i4c-Mj-GZU" secondAttribute="bottom" id="aFR-Xa-XdU"/>
+                <constraint firstAttribute="bottom" secondItem="i4c-Mj-GZU" secondAttribute="bottom" constant="-20" id="bTN-4q-Z8T"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="cjp-It-a8K"/>
+                <constraint firstItem="Of0-O7-GhL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="jLE-pP-WmY"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="jQh-Kx-ZmL"/>
+                <constraint firstItem="i4c-Mj-GZU" firstAttribute="top" secondItem="Of0-O7-GhL" secondAttribute="bottom" id="pD0-PH-0dl"/>
+                <constraint firstAttribute="bottomMargin" secondItem="i4c-Mj-GZU" secondAttribute="bottom" constant="1" id="x3g-Qa-Fni"/>
+                <constraint firstAttribute="trailing" secondItem="Of0-O7-GhL" secondAttribute="trailing" id="zsS-6u-6DG"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7oB-Dx-PWY"/>
+                    <exclude reference="jLE-pP-WmY"/>
+                    <exclude reference="8gf-LQ-eOa"/>
+                    <exclude reference="IUk-hS-Sh2"/>
+                    <exclude reference="Ixu-X4-FWs"/>
+                    <exclude reference="ZSI-pA-SFO"/>
+                    <exclude reference="bTN-4q-Z8T"/>
+                    <exclude reference="cjp-It-a8K"/>
+                    <exclude reference="jQh-Kx-ZmL"/>
+                    <exclude reference="pD0-PH-0dl"/>
+                    <exclude reference="x3g-Qa-Fni"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="chartView" destination="i4c-Mj-GZU" id="Qnj-KN-3FS"/>
+                <outlet property="dateLabel" destination="9tT-yF-Abs" id="dXJ-Mb-S7d"/>
+                <outlet property="imageForCell" destination="Fqz-dz-rgE" id="YJG-M9-d8I"/>
+            </connections>
+            <point key="canvasLocation" x="-818.5" y="-932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="crazyWolfHead" width="1300" height="1390"/>
+    </resources>
+</document>

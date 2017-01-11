@@ -16,6 +16,8 @@
 		C74A71B8DF9B0793CBA21C8A /* Pods_ProtoTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496D4B12F866D401AFDCCF47 /* Pods_ProtoTwo.framework */; };
 		DD159513D738C0934418F44F /* Pods_ProtoTwoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BCDEFB37952326D4B2E08F /* Pods_ProtoTwoTests.framework */; };
 		EA68382575965663B30A64EE /* Pods_ProtoTwoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB79DF2E4B4EA8247963DA5 /* Pods_ProtoTwoUITests.framework */; };
+		F6081C0F1E1F14100008C3C4 /* PinkSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6081C0E1E1F14100008C3C4 /* PinkSectionHeaderView.swift */; };
+		F6081C111E1F14100008C3C4 /* PinkSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6081C101E1F14100008C3C4 /* PinkSectionHeaderView.xib */; };
 		F60CB96D1D2734F900862881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60CB96C1D2734F900862881 /* AppDelegate.swift */; };
 		F60CB96F1D2734F900862881 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60CB96E1D2734F900862881 /* HomeViewController.swift */; };
 		F60CB9721D2734F900862881 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60CB9701D2734F900862881 /* Main.storyboard */; };
@@ -64,11 +66,14 @@
 		F69F59E11DAAFA6800CD8625 /* secondLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69F59E01DAAFA6800CD8625 /* secondLevelCell.xib */; };
 		F69F59E31DAAFA7B00CD8625 /* thirdLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69F59E21DAAFA7B00CD8625 /* thirdLevelCell.xib */; };
 		F69F59E51DAAFB2B00CD8625 /* feelingCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F59E41DAAFB2B00CD8625 /* feelingCustomCell.swift */; };
+		F6A1557B1E258C08004D61E2 /* ChartsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A1557A1E258C08004D61E2 /* ChartsTestViewController.swift */; };
 		F6B81DA21D6656BA00CB1F9D /* GIFImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81DA11D6656BA00CB1F9D /* GIFImageViewController.swift */; };
 		F6B81DA41D6656D400CB1F9D /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81DA31D6656D400CB1F9D /* UIImage+Gif.swift */; };
 		F6B81DA61D66570D00CB1F9D /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81DA51D66570D00CB1F9D /* HelpViewController.swift */; };
 		F6B81DAA1D665B0000CB1F9D /* breathe-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = F6B81DA91D665B0000CB1F9D /* breathe-gif.gif */; };
 		F6B81DAD1D665D6300CB1F9D /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81DAC1D665D6300CB1F9D /* CountdownViewController.swift */; };
+		F6B86A341E24631400A6B161 /* CellGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B86A331E24631400A6B161 /* CellGraphView.xib */; };
+		F6B86A361E24636300A6B161 /* CellGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B86A351E24636300A6B161 /* CellGraphView.swift */; };
 		F6B97C581D76597800F64522 /* PopUpDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B97C571D76597800F64522 /* PopUpDatePicker.xib */; };
 		F6B97C5A1D765B1600F64522 /* PopUpDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B97C591D765B1600F64522 /* PopUpDatePickerViewController.swift */; };
 		F6C0AACD1DA31E3100AFB069 /*  FeelingFunnelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0AACB1DA31E3100AFB069 /*  FeelingFunnelViewController.swift */; };
@@ -122,6 +127,8 @@
 		8D8D73D7C38098F7F61C2B7A /* Pods-ProtoTwoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtoTwoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProtoTwoUITests/Pods-ProtoTwoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACB79DF2E4B4EA8247963DA5 /* Pods_ProtoTwoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtoTwoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C517FD2B87E0F2D8BE1C5AAC /* Pods-ProtoTwoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtoTwoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProtoTwoTests/Pods-ProtoTwoTests.release.xcconfig"; sourceTree = "<group>"; };
+		F6081C0E1E1F14100008C3C4 /* PinkSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinkSectionHeaderView.swift; sourceTree = "<group>"; };
+		F6081C101E1F14100008C3C4 /* PinkSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinkSectionHeaderView.xib; sourceTree = "<group>"; };
 		F60CB9691D2734F900862881 /* ProtoTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtoTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F60CB96C1D2734F900862881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F60CB96E1D2734F900862881 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -166,11 +173,14 @@
 		F69F59E01DAAFA6800CD8625 /* secondLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = secondLevelCell.xib; sourceTree = "<group>"; };
 		F69F59E21DAAFA7B00CD8625 /* thirdLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = thirdLevelCell.xib; sourceTree = "<group>"; };
 		F69F59E41DAAFB2B00CD8625 /* feelingCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feelingCustomCell.swift; sourceTree = "<group>"; };
+		F6A1557A1E258C08004D61E2 /* ChartsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTestViewController.swift; sourceTree = "<group>"; };
 		F6B81DA11D6656BA00CB1F9D /* GIFImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFImageViewController.swift; sourceTree = "<group>"; };
 		F6B81DA31D6656D400CB1F9D /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		F6B81DA51D66570D00CB1F9D /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		F6B81DA91D665B0000CB1F9D /* breathe-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "breathe-gif.gif"; sourceTree = "<group>"; };
 		F6B81DAC1D665D6300CB1F9D /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		F6B86A331E24631400A6B161 /* CellGraphView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellGraphView.xib; sourceTree = "<group>"; };
+		F6B86A351E24636300A6B161 /* CellGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellGraphView.swift; sourceTree = "<group>"; };
 		F6B97C571D76597800F64522 /* PopUpDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpDatePicker.xib; sourceTree = "<group>"; };
 		F6B97C591D765B1600F64522 /* PopUpDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDatePickerViewController.swift; sourceTree = "<group>"; };
 		F6C0AACB1DA31E3100AFB069 /*  FeelingFunnelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " FeelingFunnelViewController.swift"; sourceTree = "<group>"; };
@@ -387,6 +397,7 @@
 				F6B81DA11D6656BA00CB1F9D /* GIFImageViewController.swift */,
 				F6B81DAC1D665D6300CB1F9D /* CountdownViewController.swift */,
 				F6B81DA51D66570D00CB1F9D /* HelpViewController.swift */,
+				F6A1557A1E258C08004D61E2 /* ChartsTestViewController.swift */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -396,6 +407,10 @@
 			children = (
 				F6D72EA91D41D62000AEDCF9 /* CellView.swift */,
 				F6D72EAD1D41D69500AEDCF9 /* CellView.xib */,
+				F6B86A331E24631400A6B161 /* CellGraphView.xib */,
+				F6B86A351E24636300A6B161 /* CellGraphView.swift */,
+				F6081C101E1F14100008C3C4 /* PinkSectionHeaderView.xib */,
+				F6081C0E1E1F14100008C3C4 /* PinkSectionHeaderView.swift */,
 				F6D72EA71D41D60200AEDCF9 /* DetailViewController.swift */,
 				F6D72EA51D41D5DA00AEDCF9 /* CalendarViewController.swift */,
 				F664898A1DC05CFD001D2314 /* JournalDetailViewController.swift */,
@@ -548,6 +563,7 @@
 				F638AF441DA36B560063BCBB /* feelingList.plist in Resources */,
 				F67BA8ED1D9F0E63003B176B /* Images.xcassets in Resources */,
 				F6C0AAD11DA33E1400AFB069 /* FeelingFunnelViewController.xib in Resources */,
+				F6B86A341E24631400A6B161 /* CellGraphView.xib in Resources */,
 				F6B81DAA1D665B0000CB1F9D /* breathe-gif.gif in Resources */,
 				F69F59E31DAAFA7B00CD8625 /* thirdLevelCell.xib in Resources */,
 				F67AF2561D2766A7002901EB /* wolf6.mp3 in Resources */,
@@ -559,6 +575,7 @@
 				F60CB9721D2734F900862881 /* Main.storyboard in Resources */,
 				F69F59E11DAAFA6800CD8625 /* secondLevelCell.xib in Resources */,
 				F6749E4D1D693E89001C1586 /* CostBenefitSheet.xib in Resources */,
+				F6081C111E1F14100008C3C4 /* PinkSectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,18 +748,21 @@
 				F6C0AACD1DA31E3100AFB069 /*  FeelingFunnelViewController.swift in Sources */,
 				F60CB96F1D2734F900862881 /* HomeViewController.swift in Sources */,
 				F60CB9751D2734F900862881 /* ProtoTwo.xcdatamodeld in Sources */,
+				F6A1557B1E258C08004D61E2 /* ChartsTestViewController.swift in Sources */,
 				F6B81DAD1D665D6300CB1F9D /* CountdownViewController.swift in Sources */,
 				F69F59E51DAAFB2B00CD8625 /* feelingCustomCell.swift in Sources */,
 				F60E339C1E048C1900F644D6 /* JournalMapViewController.swift in Sources */,
 				F638AF461DA3714D0063BCBB /* FeelingControl.swift in Sources */,
 				F6F34A9A1D42E64A002B8D56 /* Weekday.swift in Sources */,
 				F6C0AAD01DA3221900AFB069 /* FeelingFunnelPopOver.swift in Sources */,
+				F6B86A361E24636300A6B161 /* CellGraphView.swift in Sources */,
 				F6D72EA61D41D5DA00AEDCF9 /* CalendarViewController.swift in Sources */,
 				F6D72EA81D41D60200AEDCF9 /* DetailViewController.swift in Sources */,
 				F618FB1A1DB024550088521B /* CostBenefitSheetModel.swift in Sources */,
 				F6D72EA41D41D43D00AEDCF9 /* NotificationTableViewController.swift in Sources */,
 				3E0E7B581D6298FA0069F4BA /* GPSTableViewCell.swift in Sources */,
 				F67BA8F11D9F238D003B176B /* CustomSlider.swift in Sources */,
+				F6081C0F1E1F14100008C3C4 /* PinkSectionHeaderView.swift in Sources */,
 				F67963BF1DBD613900704C0B /* DescriptionAndRating.swift in Sources */,
 				F60CB96D1D2734F900862881 /* AppDelegate.swift in Sources */,
 				F68E01C61D98B23B00F3909A /* SmokingSegmentedControl.swift in Sources */,

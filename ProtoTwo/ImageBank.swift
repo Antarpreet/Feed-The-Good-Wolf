@@ -23,6 +23,7 @@ class ImageBank {
     var smokingYes = UIImage()
     var addButton = UIImage()
     var costBen = UIImage()
+    var blankImage = UIImage()
     
     
     let wolfHeadSize = CGSize(width: 20,height: 20)
@@ -59,6 +60,9 @@ class ImageBank {
         if let tempImage9 = UIImage(named:"cost"){
         self.costBen = imageResize(tempImage9, sizeChange: wolfHeadSize)
         }
+        if let tempImage10 = UIImage(named:"blankImage"){
+            self.blankImage = imageResize(tempImage10, sizeChange: wolfHeadSize)
+    }
     
     }
     func imageResize (image: UIImage, sizeChange:CGSize)-> UIImage{

@@ -28,8 +28,21 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
     var popDatePicker : PopDatePicker?
     //var sharedJournal = Journal.sharedInstance.journalArray
     
+    @IBOutlet weak var quitDayLabel: UILabel!
 
     @IBOutlet weak var quitDayTextField: UITextField!
+    
+    
+    //Images for cell
+    
+    let blankImage = ImageBank.sharedInstance.blankImage
+    let badWolfImage = ImageBank.sharedInstance.badWolfHead
+    let goodWolfImage = ImageBank.sharedInstance.goodWolfHead
+    
+    
+    let quitDayImage = ImageBank.sharedInstance.quitDayImage
+    let quitDayImageGrey = ImageBank.sharedInstance.quitDayImageGrey
+    let costBenImage = ImageBank.sharedInstance.costBen
 
     
     override func viewDidLoad() {
@@ -37,11 +50,14 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
         
         //clearJournalEntries()
         //clearCostBenSheeets()
+        //clearQuitDay()
         
         self.calendarView.dataSource = self
        
         self.calendarView.delegate = self
-        self.calendarView.registerCellViewXib(fileName: "CellView")
+        //self.calendarView.registerCellViewXib(fileName: "CellView")
+        self.calendarView.registerCellViewXib(fileName: "CellGraphView")
+        //self.calendarView.registerCellViewXib(fileName: "CalendarHeaderView")
         
         let tempDate = NSDate()
         calendarView.scrollToDate(tempDate, triggerScrollToDateDelegate: true)
@@ -55,21 +71,11 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
         
         quitDayTextField.delegate = self
         quitDayTextField.addTarget(self, action: #selector(CalendarViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingDidEnd)
-        getQuitDayFromJournal()
-        
-        //Journal Stuff
-        var count = 1
-        print("This is the count")
-        for e in Journal.sharedInstance.journalArray {
-            print(count)
-            print(e.displayTime)
-            print(e.note)
-            count += 1
-            
+        if getQuitDayFromJournal() {
+            quitDayLabel.text! = "Your Quitting Day:"
         }
-        
-        //createDummyJournalEntries()
     }
+    
     
 //    init? (title: String, entryTime: NSDate, displayTime: String, note: String, quitDayFlag: Bool, cravingRating: Int, feelingOne: String, feelingTwo: String, latt: Double, long: Double, didSmoke: Bool ){
 //        self.title = title
@@ -92,15 +98,27 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
 //            return nil
 //        }
     
+    func clearQuitDay(){
+        for e in Journal.sharedInstance.journalArray {
+            if e.title == "Quit Day"{
+                let index = Journal.sharedInstance.journalArray.indexOf(e)
+                Journal.sharedInstance.journalArray.removeAtIndex(index!)
+                Journal.sharedInstance.saveJournalEntries()
+                print("Clearing quit day")
+            }
+        }
+    
+    }
+    
     func randomStringWithLength (len : Int) -> NSString {
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
-        var randomString : NSMutableString = NSMutableString(capacity: len)
+        let randomString : NSMutableString = NSMutableString(capacity: len)
         
         for (var i=0; i < len; i++){
-            var length = UInt32 (letters.length)
-            var rand = arc4random_uniform(length)
+            let length = UInt32 (letters.length)
+            let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
         
@@ -111,12 +129,12 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
     func createDummyJournalEntries(){
         
         var i = 0
-        var tempLatt = 39.6482957
-        var tempLong = -123.876598
+        let tempLatt = 39.6482957
+        let tempLong = -123.876598
        
         
         while i <= 100 {
-            var entryTime = NSDate(timeIntervalSinceNow: NSTimeInterval((86400/2) * i))
+            let entryTime = NSDate(timeIntervalSinceNow: NSTimeInterval((86400/2) * i))
 
          let tempEntry = JournalEntry(title: randomStringWithLength(7) as String, entryTime: entryTime, displayTime: String(entryTime), note: randomStringWithLength(7) as String, quitDayFlag: false, cravingRating: ((i%5) + 1), feelingOne: "Great", feelingTwo: "Greater", latt: (tempLatt * (Double(i)/10.0)), long: tempLong * (Double(i)/10.0), didSmoke: Bool(i%2))
             Journal.sharedInstance.journalArray.append(tempEntry!)
@@ -128,12 +146,12 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
     }
     
     func writeDummyToPlist(){
-        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        var path = paths.stringByAppendingPathComponent("data.plist")
-        var fileManager = NSFileManager.defaultManager()
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let path = paths.stringByAppendingPathComponent("data.plist")
+       let fileManager = NSFileManager.defaultManager()
         if (!(fileManager.fileExistsAtPath(path)))
         {
-            var bundle : NSString = NSBundle.mainBundle().pathForResource("data", ofType: "plist")!
+            let bundle : NSString = NSBundle.mainBundle().pathForResource("data", ofType: "plist")!
             do
             { try fileManager.copyItemAtPath(bundle as String, toPath: path)
                 
@@ -147,14 +165,18 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
     
     }
     
-    func getQuitDayFromJournal() {
+    func getQuitDayFromJournal() -> Bool {
+        
+        var returnBool = false
         for e in Journal.sharedInstance.journalArray {
             if e.title == "Quit Day"{
                 quitDayTextField.text = (e.entryTime.ToDateMediumString() ?? "?") as String
                 print("????????????????????????????????????????????")
                 print("Found Quit Day")
+                returnBool = true
             }
         }
+        return  returnBool
     }
     
     func clearJournalEntries(){
@@ -221,7 +243,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
         
         
         //self.setNeedsDisplay()
-        
+        calendarView.reloadData()
         
         
     }
@@ -257,13 +279,83 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate, UIT
             
             popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
             
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+             calendarView.reloadData()
             
             return false
         }
         else {
             return true
         }
+       
     }
+    
+    func getCellInfo(cellState: CellState) -> (Int, Int, UIImage){
+    
+        var didSmoke = 0
+        var didNotSmoke = 0
+        var image = blankImage
+//        var title = ""
+//        var quitDayFlag = false
+        
+        for e in Journal.sharedInstance.journalArray {
+            if testCalendar.isDate(e.entryTime as NSDate, inSameDayAsDate : passCellDate){
+                if e.didSmoke!{
+                    didSmoke += 1
+                }
+                if !e.didSmoke!{
+                    didNotSmoke += 1
+                }
+//                if e.title == "Former Quit Day"{
+//                    title = e.title!
+//                }
+//                if e.quitDayFlag{
+//                    quitDayFlag = true
+//                }
+            }
+       
+        }
+     
+        for e in Journal.sharedInstance.journalArray {
+            if testCalendar.isDate(e.entryTime as NSDate, inSameDayAsDate : passCellDate){
+
+                if didSmoke > didNotSmoke {
+                    image = badWolfImage
+                } else if didNotSmoke >= didSmoke { ////Something is wrong here.....
+                    image = goodWolfImage
+                } else {
+                    if e.quitDayFlag {
+                        image = quitDayImage
+                    }else{
+                        image = blankImage
+                    }
+                }
+        
+              
+        
+                
+                if e.title == "Former Quit Day" {
+                    image = quitDayImageGrey
+                    
+                } 
+            }
+        }
+        for item in AllCostBenefitSheets.sharedInstance.allSheetsArray{
+            if testCalendar.isDate(item.dateMade, inSameDayAsDate : cellState.date){
+                image = costBenImage
+                
+            }
+        }
+        
+     
+        
+            let returnTuple = (didSmoke, didNotSmoke, image)
+        
+        return returnTuple
+    
+    }
+    
+    
    
     
 
@@ -359,9 +451,9 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         // You can set your date using NSDate() or NSDateFormatter. Your choice.
         let firstDate = getStartAndEndDates(-6)
         let secondDate = getStartAndEndDates(6)
-        let numberOfRows = 6
+        let numberOfRowsDude = 6
         let aCalendar = testCalendar // Properly configure your calendar to your time zone here
-        return (startDate: firstDate, endDate: secondDate, numberOfRows: numberOfRows, calendar: aCalendar)
+        return (startDate: firstDate, endDate: secondDate, numberOfRows: numberOfRowsDude, calendar: aCalendar)
     }
     
     func getStartAndEndDates(offset: Int) -> NSDate{
@@ -369,17 +461,37 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         return newDate!
     }
     
+    
+    
     func calendar(calendar: JTAppleCalendarView, isAboutToDisplayCell cell: JTAppleDayCellView, date: NSDate, cellState: CellState) {
         
-        (cell as! CellView).setupCellBeforeDisplay(cellState, date: date)
+        //Create a custom cell
+        let myCell = cell as! CellGraphView
+        
+        //maybe this is dumb
+        let cellInfo = getCellInfo(cellState)
+        
+        myCell.didSmokeCount = cellInfo.0
+        myCell.didNotSmokeCount = cellInfo.1
+        myCell.imageForCell.image = cellInfo.2
+        
+        //Trying to check if there are no journal entries, probably a bad spot
+        if cellInfo.0 == 0 && cellInfo.1 == 0 {
+            myCell.imageForCell.hidden = true
+        }
+        
+        // Configure Cell
+        //(cell as! CellView).setupCellBeforeDisplay(cellState, date: date)
+        myCell.setupCellBeforeDisplay(cellState, date: date)
+        //myCell.imageForCell.hidden = true
         
     }
     func calendar(calendar: JTAppleCalendarView, didDeselectDate date: NSDate, cell: JTAppleDayCellView?, cellState: CellState) {
-        (cell as? CellView)?.cellSelectionChanged(cellState)
+        (cell as? CellGraphView)?.cellSelectionChanged(cellState)
     }
     
     func calendar(calendar: JTAppleCalendarView, didSelectDate date: NSDate, cell: JTAppleDayCellView?, cellState: CellState) {
-        (cell as? CellView)?.cellSelectionChanged(cellState)
+        (cell as? CellGraphView)?.cellSelectionChanged(cellState)
         
         passCellDate = cellState.date
         self.performSegueWithIdentifier("Show Detail", sender: self)
@@ -396,26 +508,40 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         //if comp % 2 > 0{
         //  return "WhiteSectionHeaderView"
         //}
-        return "PinkSectionHeaderView"
+        //return "CalendarHeaderView"
+       return "PinkSectionHeaderView"
     }
     
     func calendar(calendar: JTAppleCalendarView, sectionHeaderSizeForDate date: (startDate: NSDate, endDate: NSDate)) -> CGSize {
-        if testCalendar.component(.Month, fromDate: date.startDate) % 2 == 1 {
-            return CGSize(width: 200, height: 50)
-        } else {
-            return CGSize(width: 200, height: 100) // Yes you can have different size headers
-        }
+//        if testCalendar.component(.Month, fromDate: date.startDate) % 2 == 1 {
+//            return CGSize(width: 200, height: 50)
+//        } else {
+            return CGSize(width: 200, height: 50) // Yes you can have different size headers
+        //}
     }
     
     func calendar(calendar: JTAppleCalendarView, isAboutToDisplaySectionHeader header: JTAppleHeaderView, date: (startDate: NSDate, endDate: NSDate), identifier: String) {
-        //switch identifier {
-        //case "WhiteSectionHeaderView":
-        //  let headerCell = (header as? WhiteSectionHeaderView)
-        // headerCell?.title.text = "Design multiple headers"
-        //default:
-        // let headerCell = (header as? PinkSectionHeaderView)
-        // headerCell?.title.text = headerText
-        //}
+
+        
+        print("aboutToDisplaySectionHeader")
+        //let headerCell = (header as? CalendarHeaderView)
+        //let headerCell = (header as? PinkSectionHeaderView)
+        
+        
+//                switch identifier {
+//        case "CalendarHeaderView":
+     //     let headerCell = (header as? CalendarHeaderView)
+//         headerCell?.sun.text = "S"
+//                    headerCell?.mon.text = "M"
+//                    headerCell?.tue.text = "T"
+//                    headerCell?.wed.text = "W"
+//                    headerCell?.thur.text = "T"
+//                    headerCell?.fri.text = "F"
+//                    headerCell?.sat.text = "S"
+//        default:
+//         let headerCell = (header as? PinkSectionHeaderView)
+//         headerCell?.title.text = "CRAZY!!!"
+//        }
     }
 
 

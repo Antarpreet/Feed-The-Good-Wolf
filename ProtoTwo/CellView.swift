@@ -12,7 +12,7 @@ import UIKit
 
 class CellView: JTAppleDayCellView {
     
-     var todayColor = UIColor(hue: 0.5083, saturation: 1, brightness: 0.91, alpha: 1.0)
+     var todayColor  = UIColor(hue: 0.5083, saturation: 1, brightness: 0.91, alpha: 1.0)
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wolfImage: UIImageView!
